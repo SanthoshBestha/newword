@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Fav Quote</title>
+</head>
+<body>
+    <div class="main">
+    <div id="quote-container">
+        <p id="quote-text"></p>
+        <p id="author"></p>
+    </div>
+    <button onclick="getrand()">Get Random Quote</button>
+    <H1>B SANTHOSH ❤️❤️❤️</H1>
+</div>
+<div class="thanks">
+    
+</div>
+    <script>
+        async function getrand(){
+            try{
+                const response = await fetch('https://api.quotable.io/random');
+                const data = await response.json();
+                document.getElementById("quote-text").innerText = data.content;
+                document.getElementById("author").innerText = "- " + data.author;
+                
+            }
+            catch(error){
+                console.error("error fetching quote:",error);
+
+            }
+            }
+        getrand();
+    </script>
+    <style>
+        body {
+            background-color: #c03535;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            
+        }
+        .main{
+            height: 500px;
+            width: 1000px;
+            display: block;
+            border: 20px block;
+            justify-self: center;
+            align-self: center;
+            border: 30px black;
+            padding: 20px;
+            margin-top:100px;
+            margin-left: 200px;
+            
+        }
+        #quote-container {
+            background-image: url("https://t3.ftcdn.net/jpg/06/63/14/36/240_F_663143630_cBz8GqFCIW8HlFNrs6jnHVw7gCBfll6l.jpg");
+            opacity: 30px;
+            border-radius: 5px;
+            width: 500px;
+            height: 300px;
+            margin: 50px auto;
+            padding: 30px;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #quote-text {
+            color: white;
+            font-size: 24px;
+            line-height: 1.4;
+            margin-bottom: 50px;
+        }
+        
+        #author {
+            color: #dbd6d6;
+            font-size: 18px;
+            font-style: italic;
+            position: absolute;
+            right: 50px;
+            bottom: 30px;
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #e86e2c;
+            align-items: center;
+            display: flex;
+            justify-self: center;
+            align-items: center; 
+            display: flex; 
+            justify-content: center;
+            padding: 10px 20px;
+            margin-left: 400px;
+            border: none;
+            border-radius: 30px;
+            height: 50px;
+        }
+        button:hover{
+            background-color: chartreuse;
+        }
+        h1{
+        margin-left: 300px;
+        font-family:Cursive;
+        color: rgb(248, 244, 244);
+        }
+    </style>
+</body>
+</html>
